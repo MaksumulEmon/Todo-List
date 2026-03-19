@@ -11,13 +11,19 @@ const fetchTodos = async () => {
 
 function App() {
 
-const todospromise =fetchTodos();
+  const todospromise = fetchTodos();
 
   return (
     <>
 
-      <Suspense fallback={<h1>Loading  .......</h1>}>
-        <Todos todospromise ={todospromise}></Todos>
+      <Suspense
+        fallback={
+          <div className="flex justify-center items-center h-screen">
+            <span className="loading loading-spinner text-success w-16 h-16"></span>
+          </div>
+        }
+      >
+        <Todos todospromise={todospromise}></Todos>
       </Suspense>
 
 
